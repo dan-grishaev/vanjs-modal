@@ -1,0 +1,42 @@
+{
+  "name": "vanjs-modal",
+  "version": "0.1.0",
+  "description": "Controlled native modal dialogs for VanJS.",
+  "type": "module",
+  "author": "Daniel Grishaev <dan.grishaev@gmail.com>",
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./style.css": "./dist/style.css"
+  },
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "keywords": [
+    "vanjs",
+    "modal",
+    "dialog",
+    "typescript"
+  ],
+  "scripts": {
+    "dev": "vite demo",
+    "build": "tsc -p tsconfig.build.json && node scripts/build-css.mjs",
+    "check": "tsc --noEmit",
+    "prepack": "npm run build"
+  },
+  "peerDependencies": {
+    "vanjs-core": "^1.6.1"
+  },
+  "devDependencies": {
+    "typescript": "^6.0.3",
+    "vanjs-core": "^1.6.1",
+    "vite": "^8.2.2"
+  }
+}

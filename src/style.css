@@ -1,0 +1,83 @@
+:where(.vanjs-modal) {
+  box-sizing: border-box;
+  max-width: calc(
+    100% - max(1rem, env(safe-area-inset-left)) - max(1rem, env(safe-area-inset-right))
+  );
+  max-height: calc(
+    100dvh - max(1rem, env(safe-area-inset-top)) - max(1rem, env(safe-area-inset-bottom))
+  );
+  margin: 1rem auto auto;
+  padding: 1rem;
+  border: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+
+:where(.vanjs-modal_center) {
+  margin: auto;
+}
+
+:where(.vanjs-modal__close) {
+  position: absolute;
+  top: 0;
+  inset-inline-end: 0;
+  min-width: 44px;
+  min-height: 44px;
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  font-size: 1.75rem;
+  line-height: 1;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+:where(.vanjs-modal__close[hidden]) {
+  display: none;
+}
+
+:where(.vanjs-modal__close:focus-visible) {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+:where(.vanjs-modal:not(.vanjs-modal_center)) {
+  margin-top: max(1rem, env(safe-area-inset-top));
+}
+
+:where(.vanjs-modal[data-phase='opening']),
+:where(.vanjs-modal[data-phase='opening'])::backdrop {
+  animation: vanjs-modal-fade-in 300ms ease both;
+}
+
+:where(.vanjs-modal[data-phase='closing']),
+:where(.vanjs-modal[data-phase='closing'])::backdrop {
+  animation: vanjs-modal-fade-out 300ms ease both;
+}
+
+@keyframes vanjs-modal-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes vanjs-modal-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :where(.vanjs-modal[data-phase]),
+  :where(.vanjs-modal[data-phase])::backdrop {
+    animation: none;
+  }
+}
