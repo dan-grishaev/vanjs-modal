@@ -5,6 +5,14 @@
   "type": "module",
   "author": "Daniel Grishaev <dan.grishaev@gmail.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dan-grishaev/vanjs-modal.git"
+  },
+  "homepage": "https://github.com/dan-grishaev/vanjs-modal#readme",
+  "bugs": {
+    "url": "https://github.com/dan-grishaev/vanjs-modal/issues"
+  },
   "files": [
     "dist"
   ],
