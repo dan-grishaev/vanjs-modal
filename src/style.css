@@ -49,12 +49,12 @@
 
 :where(.vanjs-modal[data-phase='opening']),
 :where(.vanjs-modal[data-phase='opening'])::backdrop {
-  animation: vanjs-modal-fade-in 300ms ease both;
+  animation: vanjs-modal-fade-in 150ms ease both;
 }
 
 :where(.vanjs-modal[data-phase='closing']),
 :where(.vanjs-modal[data-phase='closing'])::backdrop {
-  animation: vanjs-modal-fade-out 300ms ease both;
+  animation: vanjs-modal-fade-out 150ms ease both;
 }
 
 @keyframes vanjs-modal-fade-in {
