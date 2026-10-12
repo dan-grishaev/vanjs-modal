@@ -105,9 +105,14 @@ export function Modal(options: ModalOptions, ...children: readonly ChildDom[]): 
   )
 
   const updateOptions = () => {
-    root.className = ['vanjs-modal', read(options.class ?? '')].filter(Boolean).join(' ')
-    root.classList.toggle('vanjs-modal_center', read(options.center ?? false))
+    root.className = [
+      'vanjs-modal',
+      read(options.center ?? false) && 'vanjs-modal_center',
+      read(options.class ?? ''),
+    ].filter(Boolean).join(' ')
+
     root.title = read(options.title ?? '')
+
     closeButton.hidden = !read(options.showCloseButton ?? true)
   }
 
