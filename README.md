@@ -65,6 +65,7 @@ In the table below, `Reactive<T>` means `T | StateView<T> | (() => T)`, where `S
 | `open` | `StateView<boolean> \| (() => boolean)` | Required | Controls whether the dialog is open. |
 | `onCloseRequest` | `() => void` | Required | Handles close requests from the topmost modal; update `open` to accept a request. |
 | `center` | `Reactive<boolean>` | `false` | Centers the dialog vertically with the package stylesheet or equivalent custom CSS. |
+| `autoFocus` | `Reactive<boolean>` | `true` | Automatically focuses dialog content when opened. Set to `false` to focus the dialog itself, including when a child has `autofocus`. Changes apply on the next opening. |
 | `closeOnEscape` | `Reactive<boolean>` | `true` | Allows Escape and native cancel events to request closure. |
 | `closeOnOutsideClick` | `Reactive<boolean>` | `true` | Allows a click that starts and finishes outside the dialog to request closure. |
 | `showCloseButton` | `Reactive<boolean>` | `true` | Shows the built-in close button. |

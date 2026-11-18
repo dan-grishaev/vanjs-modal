@@ -14,6 +14,8 @@ export interface ModalAnimationEvent {
 export interface ModalOptions {
   open: StateView<boolean> | (() => boolean)
   center?: Reactive<boolean>
+  /** Focuses dialog content on opening; false focuses the dialog itself. */
+  autoFocus?: Reactive<boolean>
   /** Completed transitions only; interrupted transitions and disposal do not notify. */
   onAnimationEnd?: (event: ModalAnimationEvent) => void
   onCloseRequest: () => void
@@ -112,6 +114,8 @@ export function Modal(options: ModalOptions, ...children: readonly ChildDom[]): 
     ].filter(Boolean).join(' ')
 
     root.title = read(options.title ?? '')
+    // Native showModal() focuses the dialog itself when it has autofocus.
+    root.autofocus = !read(options.autoFocus ?? true)
 
     closeButton.hidden = !read(options.showCloseButton ?? true)
   }
